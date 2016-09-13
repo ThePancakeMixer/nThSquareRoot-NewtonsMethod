@@ -1,0 +1,52 @@
+Psuedo Code (All functions will return a value (I USE NO VOIDS IN THIS PROGRAM)
+
+Power function (will take the base and the exponent as input) 
+-initialize variable i and set it to 1
+-initialize variable answer and set it to 1
+-make a loop that multiplies the answer by the base the number of exponent times and update variable answer
+-return answer
+
+Absolute Value function (takes and double number as input)
+-if the input is less than zero
+	input=input times -1 //this will make negatives positives
+-else greater than 0
+	input = input //if the input is positive it does nothing 
+-return input
+
+Best Guess function (takes in the base and the nth root the user would like to obtain)
+-initialize a variable: best Guess = 1 
+- initialize answer2 and final Answer 
+IF BASE IS GREATER THAN 0
+-set up loop that will compute bestGuess to the power of nth root if the answer is less than the base it will store bestGuess into finalAnswer
+-the loop will stop once bestGuess to the power of the nth root is greater than the base 
+IF BASE IS LESS THAN 0 USE SAME LOOP BUT START BESTGUESS AT -1 AND MAKE THE CONDITION: BESTGUESS^NTHROOT>=BASE AND DECREASE BESTGUESS BY 1 AT EVERY ITERATION
+-return best guess 
+(This function attempts to find the closest interger answer)
+
+Check Precision function (takes in the guess, what nth root the user would like to obtain, and the base)
+initialize a variable: percision = 0
+set precision to the absolute value of the guess to the nth root power minus the base
+//this will tell us how far off our answer is
+if ( precision<.00001)
+	percision = 1
+else
+	precision = 0
+return precision
+(This function will tell the program when to stop. It will stop once the precision is down to .00001.)
+
+Square Root function(takes in the base and the nroot the user would like to find as arguments)
+(this function implements Newton’s Method)
+-initialize variable: guess=0
+-set guess equal to the output of the function Best Guess with the base and the nRoot as inputs)
+-create loop with condition: (while function precision (input in guess/ base/ nRoot)==0)
+-the loop will do Newtons Method	-guess=guess-(guess^nRoot2-base)/(nRoot2*(guess^(nRoot2-1))<-derivative of numerator
+//The condition calls the check precision function to test how accurate the guess is. Once the guess is accurate enough the function will return a 1 which will cause the loop to end
+return guess
+
+Main function
+-initialize user input, nroot, answer
+-ask user for userinput(base of root) store in correct variable
+-ask user for n root(nth root) store in correct variable
+-CHECK TO SEE IF THE USERINPUT IS LESS THAN 0 AND IF THE NTH ROOT IS EVEN IF BOTH OF THESE ARE TRUE PROMPT THE USER OF INVALID INPUT AND END PROGRAM
+-set answer to the SquareRoot function with userinput and nRoot 
+-print: The answer
